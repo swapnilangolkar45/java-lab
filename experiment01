@@ -1,0 +1,69 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package SwapnilLab002;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Exam
+ */
+public class StackOperation {
+    public static void main(String[] args){
+        Stack s = new Stack();
+        Scanner sc = new Scanner(System.in);
+        int ch;
+        
+        System.out.println("STACK MENU");
+        System.out.println("1:Push,2:PoP,3:Display,4:Exit");
+        
+        do{
+            System.out.println("Enter Your Choice");
+            ch = sc.nextInt();
+            switch(ch){
+                case 1:System.out.println("Enter THe Value");
+                int value = sc.nextInt();
+                s.push(value); break;
+                    
+                case 2:s.pop(); break;
+                    
+                case 3:s.display(); break;
+                                       
+                case 4:continue;
+            }
+            
+        }while(ch!=4);
+    }
+    
+}
+
+class Stack{
+    int[] arr = new int[10];
+    int top=-1;
+    
+    void push(int value){
+        if(top==9){
+            System.out.println("STACK OVERFLOW");
+        }
+        else{
+            top++;
+            arr[top]=value;
+        }
+    }
+    
+    void pop(){
+        if(top==-1){
+            System.out.println("Popped Value:" + arr[top]);
+            top--;
+        }
+    }
+    
+    void display(){
+        for (int i = top; i >=0; i--) {
+            System.out.println(arr[i]);
+            
+        }
+    }
+}
