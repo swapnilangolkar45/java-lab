@@ -1,0 +1,49 @@
+
+package CSEC;
+import java.util.Scanner;
+
+class Student{
+    String usn;
+    String name;
+    String branch;
+    String phone;
+    
+    public Student(String a, String b, String c, String d){
+        usn=a;
+        name=b;
+        branch=c;
+        phone=d;
+    }
+    void printStudent(){
+        System.out.println(usn+"\t"+name+"\t"+branch+"\t"+phone);
+    }
+    
+    
+}
+
+public class StudentOperation {
+ public static void main(String[] args)  {
+     System.out.println("How many Students:");
+     Scanner s=new Scanner(System.in);
+     int n=s.nextInt();
+     Student[] students=new Student[n];
+     String usnPat="[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}";
+     String phonePat ="[0-9]{10}";
+     for(int i=0;i<n;i++ ){
+         System.out.println("Enter usn:");
+         String usn=s.next(usnPat);
+            System.out.println("Enter Name:");
+            String name=s.next();
+            System.out.println("Enter Branch:");
+            String branch=s.next();
+            System.out.println("Enter phone number:");
+            String phone=s.next(phonePat);
+            students[i] = new Student(usn,name,branch,phone);
+        }
+        System.out.println("USN\tName\tBranch\tPhone");
+        for(Student st:students){
+           st.printStudent();
+        
+     }
+ } 
+}
